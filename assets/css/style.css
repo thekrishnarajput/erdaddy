@@ -1724,3 +1724,53 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* ==================================Teams Section Responsive Starts======================================= */
+
+/* Small devices (phones) */
+@media only screen and (max-width: 750px) {
+  .team .section-title h2 {
+    font-size: 24px;
+  }
+
+  .team .section-title p {
+    font-size: 16px;
+  }
+
+  .team .responsive-cell-block {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 751px) and (max-width: 1150px) {
+  .team .responsive-cell-block {
+    width: 50%;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Large devices (desktops) */
+@media only screen and (min-width: 1150px) {
+  .team .responsive-cell-block {
+    width: calc(100% / 3);
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* ==================================Teams Section Responsive Ends======================================= */
+
+/* ==================================Map Section Responsive Starts======================================= */
+
+
+
+This will set the width of the map to 100% on smaller screens and to 365px on screens with a minimum width of 768px. You can adjust the values as needed for your specific design.
+
+/* ==================================Map Section Responsive Ends======================================= */
