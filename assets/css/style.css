@@ -559,7 +559,7 @@ section {
   display: block;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: #45505b;
+  color: #5b4545;
 }
 
 .skills .progress .skill .val {
@@ -568,7 +568,8 @@ section {
 }
 
 .skills .progress-bar-wrap {
-  background: #f2f3f5;
+  transition: 0.2s;
+  background: #cccccc;
 }
 
 .skills .progress-bar {
@@ -576,6 +577,18 @@ section {
   height: 10px;
   transition: 0.9s;
   background-color: #0563bb;
+}
+
+.skills .progress-bar:hover {
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: #0563bb;
+}
+
+.skills .progress-bar-wrap:hover {
+  transition: 0.9s;
+  background: #da0404;
 }
 
 /*--------------------------------------------------------------
