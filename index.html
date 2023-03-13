@@ -879,8 +879,8 @@
           <div class="col-lg-8 mt-5 mt-lg-0">
 
             <!-- <form action="forms/contact.php" method="post" role="form" class="email-form"> -->
-            <!-- <form onsubmit="sendEmail(); return false;" role="form" class="email-form"> -->
-            <form id="contact-form" method="POST" role="form" class="email-form">
+            <form onsubmit="sendEmail(); reset(); return false;" role="form" class="email-form">
+              <!-- <form id="contact-form" method="POST" role="form" class="email-form"> -->
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -901,7 +901,9 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center">
+                <button type="submit"><i class="fa fa-paper-plane"> </i> Send Message</button>
+              </div>
             </form>
 
           </div>
@@ -988,60 +990,61 @@
   <script src="assets/js/main.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script>
-    // let password = "";
-    // fetch('pass.php')
-    //     .then(response => response.json())
-    //     .then(data => {
-    //       password = data.password;
-    //       // Use the password variable in your front-end code
-    //     })
-    //     .catch(error => console.error(error));
-    // function sendEmail() {
-    //   Email.send({
-    //     Host: "smtp.gmail.com",
-    //     Username: "info.hireforit@gmail.com",
-    //     Password: password,
-    //     // SecureToken: "8f50a107-6952-4abd-ac25-c8f5a3c29c0e",
-    //     To: 'info.hireforit@gmail.com',
-    //     From: document.getElementById('email').value,
-    //     Subject: document.getElementById('subject').value,
-    //     Body: "Name: " + document.getElementById('name').value
-    //           + "<br> Email: " + document.getElementById('email').value
-    //           + "<br> Message: " + document.getElementById('message').value
-    //   }).then(
-    //     message => alert(message)
-    //   );
-    // }
-
-    const form = document.querySelector('#contact-form');
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-
-      // Get the form data
-      const formData = new FormData(form);
-      console.log("formData:-", formData);
-      // Send an HTTP POST request to the server-side script
-      fetch('https://thekrishnarajput.github.io/erdaddy.com/forms/send-email.php', {
-        method: 'POST',
-        body: formData
+    let password;
+    fetch('forms/pass.php')
+      .then(response => response.json())
+      .then(data => {
+        password = data.password;
+        // Use the password variable in your front-end code
       })
-        .then(response => {
-          console.log("response:-", response);
-          if (response.ok) {
-            // Display a success message
-            alert('Your message has been sent!');
-            form.reset();
-          } else {
-            // Display an error message
-            alert('An error occurred. Please try again later....');
-          }
-        })
-        .catch(error => {
-          console.error(error);
-          alert('An error occurred. Please try again later.');
-        });
-    });
+      .catch(error => console.error("error fetch:-", error));
+    function sendEmail() {
+      Email.send({
+        // Host: "smtp.elasticemail.com",
+        // Username: "info.hireforit@gmail.com",
+        // Password: "39D0633A64D053CE3687DA5AABB88B5D540F",
+        // SecureToken: password,
+        SecureToken: "2c1910ca-6cfb-4bbb-9dd1-d394d7dd06a2",
+        To: 'mukeshkarn1994@gmail.com',
+        From: 'info.hireforit@gmail.com',
+        Subject: document.getElementById('subject').value,
+        Body: "Name: " + document.getElementById('name').value
+          + "<br> Email: " + document.getElementById('email').value
+          + "<br> Message: " + document.getElementById('message').value
+      }).then(
+        message => alert("Message sent successfully!")
+      ).catch(error => console.error("error function:-", error));
+    }
+
+    // const form = document.querySelector('#contact-form');
+
+    // form.addEventListener('submit', (event) => {
+    //   event.preventDefault();
+
+    //   // Get the form data
+    //   const formData = new FormData(form);
+    //   console.log("formData:-", formData);
+    //   // Send an HTTP POST request to the server-side script
+    //   fetch('https://thekrishnarajput.github.io/erdaddy.com/forms/send-email.php', {
+    //     method: 'POST',
+    //     body: formData
+    //   })
+    //     .then(response => {
+    //       console.log("response:-", response);
+    //       if (response.ok) {
+    //         // Display a success message
+    //         alert('Your message has been sent!');
+    //         form.reset();
+    //       } else {
+    //         // Display an error message
+    //         alert('An error occurred. Please try again later....');
+    //       }
+    //     })
+    //     .catch(error => {
+    //       console.error(error);
+    //       alert('An error occurred. Please try again later.');
+    //     });
+    // });
   </script>
 </body>
 
