@@ -5,6 +5,7 @@
 * License: https://bootstrapmade.com/license/
 */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+@import "https://fonts.googleapis.com/css2?family=Megrim&display=swap";
 
 /*--------------------------------------------------------------
 # General
@@ -178,6 +179,7 @@ h6 {
     flex: 0;
   }
 }
+
 /*========Logo Ends========*/
 
 /*--------------------------------------------------------------
@@ -316,7 +318,7 @@ h6 {
   max-width: auto;
   /* height: auto; */
   /* background: url("https://media.giphy.com/media/U4FkC2VqpeNRHjTDQ5/giphy.gif") top right no-repeat; */
-  background: url("https://vsgif.com/download/2818936?tk=1676924181958") top right no-repeat;
+  /* background: url("https://vsgif.com/download/2818936?tk=1676924181958") top right no-repeat; */
   background-size: cover;
   /* position: relative; */
 }
@@ -326,6 +328,17 @@ h6 {
     background-position: center;
     /* padding-left: 160px; */
   }
+}
+
+#word {
+  font-family: Megrim, cursive;
+  font-size: 12vh;
+  position: relative;
+  /* margin: 10; */
+  /*bottom: 0;*/
+  text-align: center;
+  color: rgb(0, 255, 183);
+  -webkit-text-stroke: 0.15vh #c0f;
 }
 
 #home:before {
@@ -1703,6 +1716,7 @@ body {
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
     rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+  margin-bottom: 25px;
 }
 
 .card {
