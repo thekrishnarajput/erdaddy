@@ -586,7 +586,7 @@
                 <div class="card">
                   <div class="img-wrapper">
                     <img class="team-img"
-                      src="https://media.licdn.com/dms/image/D4D03AQHl5J9KAP3HLg/profile-displayphoto-shrink_800_800/0/1675275923152?e=1682553600&v=beta&t=KoWfIvVs7DxFF6AZq7KeWxWvaqkS10rauUGJXW8IGt8"
+                      src="https://media.licdn.com/dms/image/D4D03AQEu_Iz_NedOBA/profile-displayphoto-shrink_800_800/0/1679049768867?e=1684368000&v=beta&t=0bulS-Evf00XeFpp5cQBz-RY-565hb6C53CvRBmbRvs"
                       alt="Avatar" style="width:200px">
                   </div>
                   <h4>Mukesh Karn(Krishna)</h4>
@@ -905,9 +905,7 @@
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <!-- <form action="forms/contact.php" method="post" role="form" class="email-form"> -->
             <form onsubmit="sendEmail(); reset(); return false;" role="form" class="email-form">
-              <!-- <form id="contact-form" method="POST" role="form" class="email-form"> -->
               <div class="row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -922,11 +920,6 @@
               <div class="form-group mt-3">
                 <textarea class="form-control" id="message" name="message" rows="5" placeholder="Message"
                   required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center">
                 <button type="submit"><i class="fa fa-paper-plane"> </i> Send Message</button>
@@ -970,38 +963,14 @@
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
-  <a href="#home" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="fas fa-hand-point-up"></i></a>
+  <a href="#" id="scrollToTopBtn" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="fa-solid fa-circle-chevron-up"></i></a>
+  <!-- <button id="scrollToTopBtn" class="back-to-top d-flex align-items-center justify-content-center">↑</button> -->
 
   <!-- Vendor JS Files -->
-  <script>
-
-    $(document).ready(function () {
-      $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-          $('#scroll').fadeIn();
-        } else {
-          $('#scroll').fadeOut();
-        }
-      });
-      $('#scroll').click(function () {
-        $("html, body").animate({ scrollTop: 0 }, 600);
-        return false;
-      });
-    });
-  </script>
-  <script>
-    function Map123() {
-      var mapOptions = {
-        center: new google.maps.LatLng(51.508742, -0.120850),
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.HYBRID
-      }
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-    }
-  </script>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=Map123"></script>
+  <script src="assets/js/scrollToTop.js"></script>
+  <script src="assets/js/map.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=Map123"></script>
 
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
@@ -1016,99 +985,8 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
-  <script>
-    let password;
-    fetch('forms/pass.php')
-      .then(response => response.json())
-      .then(data => {
-        password = data.password;
-        // Use the password variable in your front-end code
-      })
-      .catch(error => console.error("error fetch:-", error));
-    function sendEmail() {
-      Email.send({
-        // Host: "smtp.elasticemail.com",
-        // Username: "info.hireforit@gmail.com",
-        // Password: "39D0633A64D053CE3687DA5AABB88B5D540F",
-        // SecureToken: password,
-        SecureToken: "2c1910ca-6cfb-4bbb-9dd1-d394d7dd06a2",
-        To: 'mukeshkarn1994@gmail.com',
-        From: 'info.hireforit@gmail.com',
-        Subject: document.getElementById('subject').value,
-        Body: "Name: " + document.getElementById('name').value
-          + "<br> Email: " + document.getElementById('email').value
-          + "<br> Message: " + document.getElementById('message').value
-      }).then(
-        message => alert("Message sent successfully!")
-      ).catch(error => console.error("error function:-", error));
-    }
-
-    // const form = document.querySelector('#contact-form');
-
-    // form.addEventListener('submit', (event) => {
-    //   event.preventDefault();
-
-    //   // Get the form data
-    //   const formData = new FormData(form);
-    //   console.log("formData:-", formData);
-    //   // Send an HTTP POST request to the server-side script
-    //   fetch('https://thekrishnarajput.github.io/erdaddy.com/forms/send-email.php', {
-    //     method: 'POST',
-    //     body: formData
-    //   })
-    //     .then(response => {
-    //       console.log("response:-", response);
-    //       if (response.ok) {
-    //         // Display a success message
-    //         alert('Your message has been sent!');
-    //         form.reset();
-    //       } else {
-    //         // Display an error message
-    //         alert('An error occurred. Please try again later....');
-    //       }
-    //     })
-    //     .catch(error => {
-    //       console.error(error);
-    //       alert('An error occurred. Please try again later.');
-    //     });
-    // });
-  </script>
-  <script>
-    var url = 'https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?51476';
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    s.src = url;
-    var options = {
-      "enabled": true,
-      "chatButtonSetting": {
-        "backgroundColor": "#4dc247",
-        "ctaText": "",
-        "borderRadius": "25",
-        "marginLeft": "0",
-        "marginBottom": "60",
-        "marginRight": "10",
-        "position": "right"
-      },
-      "brandSetting": {
-        "brandName": "Engineer Daddy!",
-        "brandSubTitle": "One stop for all your technical needs!",
-        "brandImg": "https://thekrishnarajput.github.io/erdaddy.com/assets/img/logo.png",
-        "welcomeText": "Hi there!\nI am Erdy! How can I help you?",
-        "messageText": "Hello, I have a question about Engineer Daddy's services.",
-        "backgroundColor": "#6bae9a",
-        "ctaText": "Start Chat",
-        "borderRadius": "25",
-        "autoShow": true,
-        "phoneNumber": "918818898868"
-      }
-    };
-    s.onload = function () {
-      CreateWhatsappChatWidget(options);
-    };
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-  </script>
+  <script src="assets/js/email.js"></script>
+  <script src="assets/js/whatsapp.js"></script>
 </body>
 
 </html>
