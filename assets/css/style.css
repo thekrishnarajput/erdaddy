@@ -25,6 +25,10 @@ a:hover {
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1,
 h2,
 h3,
@@ -37,18 +41,18 @@ h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.back-to-top {
+/* .back-to-top {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
-  bottom: 15px;
+  right: 12.5px;
+  bottom: 130px;
   z-index: 996;
   background: #0563bb;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50px;
-  transition: all 0.4s;
+  transition: all 0.5s;
 }
 
 .back-to-top i {
@@ -66,6 +70,92 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
+
+#scrollToTopBtn:hover {
+  opacity: 1;
+} */
+
+/* Default styles */
+.back-to-top {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  right: 36px;
+  bottom: 150px;
+  z-index: 996;
+  background: #0563bb;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+
+.back-to-top i {
+  font-size: 26px;
+  color: #fff;
+  line-height: 0;
+}
+
+.back-to-top:hover {
+  background: #0678e3;
+  color: #fff;
+  opacity: 1;
+  }
+
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/* Media queries */
+@media only screen and (max-width: 768px) {
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    right: 10px;
+    bottom: 80px;
+  }
+
+  .back-to-top i {
+    font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .back-to-top {
+    width: 45px;
+      height: 45px;
+      right: 33.5px;
+      bottom: 150px;
+  }
+
+  .back-to-top i {
+    font-size: 20px;
+  }
+}
+
+
+/* .container {
+  position: relative;
+  height: 2000px;
+} */
+
+/* #scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 130px;
+  right: 20px;
+  font-size: 24px;
+  background: #333;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s ease-in-out;
+} */
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -332,13 +422,19 @@ h6 {
 
 #word {
   font-family: Megrim, cursive;
-  font-size: 12vh;
+  font-size: 8vh;
   position: relative;
   /* margin: 10; */
   /*bottom: 0;*/
   text-align: center;
   color: rgb(0, 255, 183);
   -webkit-text-stroke: 0.15vh #c0f;
+}
+
+@media (min-width: 768px) {
+  #word {
+    font-size: 6vw;
+  }
 }
 
 #home:before {
